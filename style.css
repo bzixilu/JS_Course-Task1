@@ -1,0 +1,14 @@
+p {
+    background-color: coral;
+    font-size: xx-large;
+    align: center;
+    color: bisque;
+    alignment: center;
+    text-align: center
+}
+
+#simple_image {
+    height: 500px;
+    width: 700px;
+    border-radius: 50%
+}

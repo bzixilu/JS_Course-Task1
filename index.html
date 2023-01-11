@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>JavaScript Hello World Example</title>
-    <script src="hello_world.js"></script>
 </head>
 <body>
+<link rel="stylesheet" href="style.css">
+<p id="blink">Hello, world!</p>
+<p>Hello, world!</p>
+<p>Hello, world!</p>
 
+<p>Hello, world!</p>
+<br>
+<marquee bgcolor="yellow" direction="Down" height="200px">Tratata</marquee>
+<br>
+<label for="search">Vogelart</label>
+<input type="search" id="search" list="Vögel">
+<datalist id="Vögel">
+    <option value="Amsel">
+    <option value="Buntspecht">
+    <option value="Drossel">
+    <option value="Eisvogel">
+    <option value="Fink">
+    <option value="Spatz">
+    <option value="Specht">
+</datalist>
+<br>
+<img id="simple_image" src="header.jpg" alt="Name of the picture">
+
+<img src="header.jpg" alt="Name of the picture">
+<br>
+<progress value="23" max="100" style="background-color: cyan"></progress>
+<table border="1">
+    <tr>
+        <td>Cell 1</td>
+        <td>Cell 2</td>
+        <td>Cell 3</td>
+    </tr>
+    <tr>
+        <td>Cell 4</td>
+        <td>Cell 5</td>
+        <td>Cell 6</td>
+    </tr>
+</table>
+<br>
 </body>
+<script>
+    var ops,blink=document.getElementById('blink');
+    ops=1
+    setInterval(function (){
+        ops = (ops < 1) ? 1:0;
+        blink.style.opacity=ops;
+    },500);
+</script>
 </html>
