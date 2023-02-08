@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .start {
+            background: url(play.png) no-repeat;
+            padding: 10px 20px 10px;
+            width: 64px;
+            height: 64px;
+            border-width: 0;
+        }
+
+        .stop {
+            background: url(stop.png) no-repeat;
+            padding: 10px 20px 10px;
+            width: 64px;
+            height: 64px;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="start" class="start"/>
+<p id="number"></p>
+
+<script>
+    var timerObj;
+    var i = 1;
+
+    let elementById = document.getElementById('start');
+    elementById.onclick = function () {
+        if (elementById.className === "start") {
+            if (!timerObj) {
+                clearInterval(timerObj);
+                timerObj = null;
+                timerObj = setInterval(function () {
+                    document.getElementById("number").textContent = i;
+                    i++;
+                }, 1000);
+            }
+            elementById.className = "stop";
+        } else {
+            i = 1;
+            document.getElementById("number").textContent = "";
+            if (timerObj) {
+                clearInterval(timerObj);
+                timerObj = null;
+            }
+            elementById.className = "start";
+        }
+    }
+</script>
+</body>
+</html>

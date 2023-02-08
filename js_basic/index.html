@@ -8,77 +8,113 @@
 
 </body>
 <script type="text/javascript">
-    var birthday = prompt("Enter your birthday", "12");
-    if (birthday < 10) {
-        document.write("It's true");
-    }
-
-    var yesno = confirm("Are you sure you want to print 'Hello'?");
-    if (yesno) {
-        document.write("Hello");
-    }
-
-    if(yesno) {
-        document.write("Hello");
-    } else if(birthday < 10) {
-        document.write("It's true");
-    } else {
-        // nothing
-    }
-
-    if (yesno && birthday < 10) {
-        document.write("It's true");
-        document.write("Hello");
-    }
-
-    // A && B - A - true and B - true -> true
-    // A || B  A - true or B - true -> true
-    // A ^^ B
-    // !A  A -true -> false; A -false -> true
-
-
-    var A = 9;
-    var B = 3;
-
-    if ((A > 1 || B < 1) && !(B < 2)) {
-        document.write("I'm here");
-    }
-
-
-
-    // Однострочный комментарий
-
-
-    /*  Многострочный
-     комментарий */
-
-    // Найти среднее арифметическое от оценок:
-    // 5,4,5,5,5,5,5,5
-    //           0  1  2  3  4  5
-    var marks = [5, 4, 5, 5, 5, 5];
-    var sum = 0;
+    // var birthday = prompt("Enter your birthday", "12");
+    // if (birthday < 10) {
+    //     document.write("It's true");
+    // }
+    //
+    // var yesno = confirm("Are you sure you want to print 'Hello'?");
+    // if (yesno) {
+    //     document.write("Hello");
+    // }
+    //
+    // if(yesno) {
+    //     document.write("Hello");
+    // } else if(birthday < 10) {
+    //     document.write("It's true");
+    // } else {
+    //     // nothing
+    // }
+    //
+    // if (yesno && birthday < 10) {
+    //     document.write("It's true");
+    //     document.write("Hello");
+    // }
+    //
+    // // A && B - A - true and B - true -> true
+    // // A || B  A - true or B - true -> true
+    // // A ^^ B
+    // // !A  A -true -> false; A -false -> true
+    //
+    //
+    // var A = 9;
+    // var B = 3;
+    //
+    // if ((A > 1 || B < 1) && !(B < 2)) {
+    //     document.write("I'm here");
+    // }
+    //
+    //
+    //
+    // // Однострочный комментарий
+    //
+    //
+    // /*  Многострочный
+    //  комментарий */
+    //
+    // // Найти среднее арифметическое от оценок:
+    // // 5,4,5,5,5,5,5,5
+    // //           0  1  2  3  4  5
+    // var marks = [5, 4, 5, 5, 5, 5];
+    // var sum = 0;
     for (var i in marks) {
         sum = sum + marks[i];
     }
+    //
+    // var average = sum/marks.length; // marks.length - сколько в массиве
+    // document.write("Средняя: " + average + "<p>");
+    //
+    //
+    // // Посчитать количество оценок в массиве
+    // var count = 0;
+    // for (var i in marks) {
+    //     count++; // 0 -> 1; 100 -> 101
+    //     // count--; // 0 -> -1; 100 -> 99
+    // }
+    // document.write("Количество:" + count);
 
-    var average = sum/marks.length; // marks.length - сколько в массиве
-    document.write("Средняя: " + average + "<p>");
+
+    //
+    // str = "Hello, Olga";
+    // // document.write(str[str.length]);
+    // document.write(str.split(',')[1]);
 
 
-    // Посчитать количество оценок в массиве
-    var count = 0;
-    for (var i in marks) {
-        count++; // 0 -> 1; 100 -> 101
-        // count--; // 0 -> -1; 100 -> 99
+    // str = "Hello, Olga Str";
+    // let indexOf = str.indexOf('Olga');
+    // alert(str.substring(indexOf));
+    //
+    // str = "Hello, Olga Str";
+    // for (var i = 0; i < str.length; i++) {
+    //     setCharAt(str, i, 'l');
+    //     setCharAt(str, i, 'l');
+    // }
+    // alert(str);
+    // let sdgfdsgadg = "dsfsad";
+    //
+    // function setCharAt(str, index, chr) {
+    //     if (str[i] === chr){
+    //         str =  str.substring(0,index) + chr.toLowerCase() + chr.toLowerCase() + str.substring(index+1);
+    //     }
+    // }
+    function checkOdd() {
+        let s = prompt("Введите число:", 0);
+        if (s % 2 === 0) {
+            document.write(s + " - четное");
+        } else {
+            document.write(s + " - нечетное");
+        }
     }
-    document.write("Количество:" + count);
 
-    var str = "ASfsdf";
-    var str2 = "dsfdf"
-    str + str2
+    checkOdd();
+    checkOdd();
+    checkOdd();
+    checkOdd();
+    checkOdd();
+    checkOdd();
+    checkOdd();
 
 </script>
-
 
 </script>
 </html>
