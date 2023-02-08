@@ -32,8 +32,6 @@
     elementById.onclick = function () {
         if (elementById.className === "start") {
             if (!timerObj) {
-                clearInterval(timerObj);
-                timerObj = null;
                 timerObj = setInterval(function () {
                     document.getElementById("number").textContent = i;
                     i++;
