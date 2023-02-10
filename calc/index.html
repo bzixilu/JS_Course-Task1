@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<link rel="stylesheet" href="style.css">
+<div id="ipoteka">
+    <div class="row"><input type="text" name="S" id="S" placeholder="Тело кредита" >руб.</div>
+    <div class="row"><input type="text" name="p" id="p" placeholder="Процентная ставка" >%</div>
+    <div class="row"><input type="text" name="n" id="n" placeholder="Период кредитования">г.</div>
+    <div class="row"><a href="javascript:calc()">Найти</a></div>
+    <div class="row">Платеж за месяц:
+        <div id="result"></div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    function calc() {
+        var S = document.getElementById("S").value - 0;
+        var p = document.getElementById("p").value - 0;
+        var n = document.getElementById("n").value - 0;
+
+        if(isNaN(typeof S)) {
+            document.write("tratata");
+        }
+        p = p / 1200;
+        n = n * 12;
+
+
+        document.getElementById("result").textContent =  (S * p / (1 - Math.pow(1 + p, -n))).toFixed(2);
+    }
+</script>
+</html>

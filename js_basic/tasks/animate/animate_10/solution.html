@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .play {
+            width: 100px;
+            height: 100px;
+            background-color: #369;
+            border-radius: 100px;
+            position: fixed;
+            top: 300px;
+        }
+    </style>
+</head>
+<body>
+<div id="result"></div>
+<div class="play" id="play"></div>
+<input type="button" id="start" class="start" value="Переместить в рандомную точку экрана" onclick="moveElement()"/>
+<a href="#" onclick="moveElement()"></a>
+</body>
+
+<script>
+    for (x = 0; x < 9; x++) {
+        var box = document.createElement("div");
+        box.nodeName = "play" + x;
+        box.className = "play";
+        box.style.top = `${Math.random() * 200 + 100}px`;
+        box.style.left = `${Math.random() * 200 + 100}px`;
+        box.style.backgroundColor = getRandomColor();
+        document.body.appendChild(box);
+    }
+
+    function moveElement() {
+        var buttons = document.getElementsByClassName('play');
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].style.top = `${Math.random() * 200 + 100}px`;
+            buttons[i].style.left = `${Math.random() * 200 + 100}px`;
+        }
+    }
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+</script>
+</html>

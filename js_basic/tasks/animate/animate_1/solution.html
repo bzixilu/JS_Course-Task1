@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .play {
+      width: 100px;
+      height: 100px;
+      background-color: #369;
+      border-radius: 100px;
+      position: fixed;
+      top: 300px;
+    }
+  </style>
+</head>
+<body>
+<div class="play" id="play"></div>
+<input type="button" id="start" class="start" value="Переместить в рандомную точку экрана" onclick="moveElement()"/>
+<a href="#" onclick="moveElement()"></a>
+</body>
+
+<script>
+  function moveElement() {
+    var circle = document.getElementById('play');
+    circle.style.top = `${Math.random() * 200}px`;
+    circle.style.left = `${Math.random() * 200}px`;
+  }
+</script>
+</html>
