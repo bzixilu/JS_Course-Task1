@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<canvas id="myCanvas" width="1000" height="800"></canvas>
+</body>
+</html>
+<script type='text/javascript'>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+    let x = 0;
+    let y = 0;
+    var paths = [];
+    generate();
+
+    function fillBackground() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const grad = ctx.createRadialGradient(canvas.width / 2, canvas.height / 2, 10, canvas.width / 2, canvas.height / 2, canvas.width);
+        grad.addColorStop(0.0, "#f5e5cf");
+        grad.addColorStop(0.45, "#dbf1d8");
+        grad.addColorStop(1.0, "#d2eafc");
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function setupColor(x, y) {
+        const grad = ctx.createRadialGradient(x, y, 10, x, y, 50);
+        grad.addColorStop(0.0, "#FF9900");
+        grad.addColorStop(0.45, "#FF3300");
+        grad.addColorStop(1.0, "#bf1dd0")
+        ctx.fillStyle = grad;
+    }
+
+    function generate() {
+        fillBackground();
+
+        for (let i = 0; i < 10; i++) {
+            x = Math.random() * canvas.width;
+            y = Math.random() * canvas.height
+            setupColor(x, y);
+            path1 = new Path2D();
+            path1.arc(x, y, 50, 0, 2 * Math.PI, false);
+            path1.x = x
+            path1.y = y
+            paths.push(path1)
+            ctx.fill(path1);
+        }
+    }
+
+    function clickHandler(e) {
+        let i;
+        const X = e.clientX;
+        const Y = e.clientY;
+        for (i = 0; i < paths.length; i++) {
+            if (ctx.isPointInPath(paths[i], X, Y)) {
+                paths.splice(i, 1)
+                break
+            }
+        }
+        fillBackground()
+        for (i = 0; i < paths.length; i++) {
+            setupColor(paths[i].x, paths[i].y)
+            ctx.fill(paths[i]);
+        }
+    }
+
+    canvas.addEventListener('click', clickHandler, false);
+</script>

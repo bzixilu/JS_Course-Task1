@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<canvas id="myCanvas" width="1000" height="800"></canvas>
+</body>
+</html>
+<script type='text/javascript'>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'blue';
+    generate();
+    let x = 0;
+    let y = 0;
+    let path1;
+
+    function generate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        x = Math.random() * canvas.width;
+        y = Math.random() * canvas.height
+        path1 = new Path2D();
+        path1.arc(x, y, 50, 0, 2 * Math.PI, false);
+        ctx.fill(path1);
+    }
+
+    function clickHandler(e) {
+        const r = canvas.getBoundingClientRect();
+        const X = e.clientX;
+        const Y = e.clientY;
+        if (ctx.isPointInPath(path1, X, Y)) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    }
+
+    canvas.addEventListener('click', clickHandler, false);
+</script>
